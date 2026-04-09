@@ -1,0 +1,7 @@
+ADMIN_USERNAME = <your-db-user>
+ADMIN_PASSWORD = <your-db-password>
+DATABASE_NAME = examdb
+DIALECT = mysql
+DIALECTMODEL = mysql2
+PORT = 3000
+HOST = localhost
