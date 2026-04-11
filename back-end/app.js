@@ -5,8 +5,6 @@ var logger = require('morgan');
 const db = require('./models');
 
 
-
-
 var testRouter = require('./routes/test');
  
 
