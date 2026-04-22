@@ -14,6 +14,20 @@ class RiskService {
     constructor(db) {
 
     }
+
+    async riskCalc() {
+
+        // Distance risk variables
+        const close = 0.06;
+        const medium = 0.05
+        const far = 0.04
+
+        // Velocity risk variables
+        const
+
+
+
+    }
 }
 
 module.exports = RiskService;

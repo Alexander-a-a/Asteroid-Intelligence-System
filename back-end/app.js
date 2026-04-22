@@ -35,6 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/test', testRouter);
 
 
+
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+});
+
 // 404 handler 
 app.use((req, res) => {
   return res.status(404).json({
