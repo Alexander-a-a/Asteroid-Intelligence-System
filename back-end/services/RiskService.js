@@ -23,7 +23,7 @@ class RiskService {
         const far = 0.04
 
         // Velocity risk variables
-        const
+        const 
 
 
 
