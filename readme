@@ -1,9 +1,6 @@
 # Asteroid-Intelligence-System
 
-A  project built with Node.js / Express / Sequelize /
-MySQL.
-
-
+A Node.js app that fetches near-Earth asteroid close-approach data from NASA/JPL’s CAD API and calculates a simple risk level based on distance, velocity, and date.
 
 ## Table of Contents
 
