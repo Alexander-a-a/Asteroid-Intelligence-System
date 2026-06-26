@@ -31,7 +31,8 @@ class RiskService {
         const vFast = 20;
 
 
-        
+        // Date
+        const today = new Date();
     
         function pointCalc() {
 
@@ -50,8 +51,6 @@ class RiskService {
                     points += 3
                 } else if (astroid.distance <= dFar){
                     points += 1;
-                } else {
-                    points;
                 }
 
 
@@ -62,13 +61,10 @@ class RiskService {
                     points += 3
                 } else if (astroid.velocity >= vLow) {
                     points += 1;
-                } else {
-                    points;
                 }
 
 
                 // Date variables
-                const today = new Date();
 
                 const astroidDate = new Date(astroid.closeApproachDate);
 
@@ -103,10 +99,12 @@ class RiskService {
 
                 return {...astroid, riskScore, riskLevel};
             });
+
+            return riskAstroid;
         }
 
 
-
+        return pointCalc();
     }
 }
 
