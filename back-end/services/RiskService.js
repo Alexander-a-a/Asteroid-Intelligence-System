@@ -23,7 +23,7 @@ class RiskService {
         const dMedium = 0.05;
         const dFar = 0.06;
 
-        const astroids = await this.cadService.initCas();
+        const asteroids = await this.cadService.initCas();
 
         // Velocity risk variables
         const vLow = 10;
@@ -36,7 +36,7 @@ class RiskService {
     
         function pointCalc() {
 
-            const riskAstroid = astroids.map((astroid) => {
+            const riskAsteroids = asteroids.map((asteroid) => {
 
                 let points = 0;
 
@@ -45,30 +45,30 @@ class RiskService {
                 let riskScore;
 
                 // Distance
-                if (astroid.distance <= dClose) {
+                if (asteroid.distance <= dClose) {
                     points += 5;
-                } else if (astroid.distance <= dMedium) {
+                } else if (asteroid.distance <= dMedium) {
                     points += 3
-                } else if (astroid.distance <= dFar){
+                } else if (asteroid.distance <= dFar){
                     points += 1;
                 }
 
 
                 // Velocity
-                if (astroid.velocity >= vFast) {
+                if (asteroid.velocity >= vFast) {
                     points += 5;
-                } else if (astroid.velocity >= vMedium) {
+                } else if (asteroid.velocity >= vMedium) {
                     points += 3
-                } else if (astroid.velocity >= vLow) {
+                } else if (asteroid.velocity >= vLow) {
                     points += 1;
                 }
 
 
                 // Date variables
 
-                const astroidDate = new Date(astroid.closeApproachDate);
+                const asteroidDate = new Date(asteroid.closeApproachDate);
 
-                const millisecond = astroidDate - today;
+                const millisecond = asteroidDate - today;
 
                 const daysUntilApproach = millisecond / (1000 * 60 * 60 * 24);
 
@@ -97,10 +97,10 @@ class RiskService {
                 riskScore = points;
 
 
-                return {...astroid, riskScore, riskLevel};
+                return {...asteroid, riskScore, riskLevel};
             });
 
-            return riskAstroid;
+            return riskAsteroids;
         }
 
 
