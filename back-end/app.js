@@ -6,7 +6,7 @@ const db = require('./models');
 
 
 var testRouter = require('./routes/test');
-var astroidRouter = require('./routes/astroid');
+var asteroidRouter = require('./routes/asteroid');
  
 
 
@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/test', testRouter);
-app.use('/astroid', astroidRouter);
+app.use('/asteroid', asteroidRouter);
 
 
 

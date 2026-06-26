@@ -16,7 +16,8 @@ class RiskService {
     }
 
     async riskCalc() {
-
+        console.log(this.cadService);
+        console.log("HI")
 
         // Distance risk variables
         const dClose = 0.04;
@@ -29,7 +30,7 @@ class RiskService {
         const vLow = 10;
         const vMedium = 15;
         const vFast = 20;
-
+        console.log("before calc")
 
         // Date
         const today = new Date();
@@ -43,6 +44,8 @@ class RiskService {
                 let riskLevel;
 
                 let riskScore;
+
+                console.log("first")
 
                 // Distance
                 if (asteroid.distance <= dClose) {
@@ -96,6 +99,7 @@ class RiskService {
 
                 riskScore = points;
 
+                console.log("Last chance")
 
                 return {...asteroid, riskScore, riskLevel};
             });
