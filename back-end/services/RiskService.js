@@ -43,6 +43,7 @@ class RiskService {
 
                 let riskScore;
 
+                // Distance
                 if (astroid.distance <= dClose) {
                     points += 5;
                 } else if (astroid.distance <= dMedium) {
@@ -53,6 +54,8 @@ class RiskService {
                     points;
                 }
 
+
+                // Velocity
                 if (astroid.velocity >= vFast) {
                     points += 5;
                 } else if (astroid.velocity >= vMedium) {
