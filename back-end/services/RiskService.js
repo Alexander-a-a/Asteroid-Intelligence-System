@@ -39,19 +39,6 @@ class RiskService {
     
         function pointCalc() {
 
-
-            /* astroids.forEach((element) => {
-                if (element.distance <= dClose) {
-                    points += 5;
-                } else if (element.distance <= dMedium) {
-                    points += 3
-                } else if (element.distance <= dFar){
-                    points += 1;
-                } else {
-                    points
-                }
-            }); */
-
             const riskAstroid = astroids.map((astroid) => {
 
                 let points = 0;
@@ -76,14 +63,9 @@ class RiskService {
                     points;
                 }
 
-                const designation = astroid.designation;
-                const dateRaw = astroid.dateRaw;
-                const distance = astroid.distance;
-                const min_distance = astroid.min_distance;
-                const max_distance = astroid.max_distance;
-                const velocity = astroid.velocity;
 
-                return {designation, closeApproachDate, distance, min_distance, max_distance, velocity, riskScore, riskLevel};
+
+                return {astroid, riskScore, riskLevel};
             });
         }
 
