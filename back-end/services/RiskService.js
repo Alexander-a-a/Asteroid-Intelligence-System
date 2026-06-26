@@ -30,11 +30,7 @@ class RiskService {
         const vMedium = 15;
         const vFast = 20;
 
-        // Date variables
-        const now = new Date();
 
-        const soon ;
-        const later ;
         
     
         function pointCalc() {
@@ -42,6 +38,10 @@ class RiskService {
             const riskAstroid = astroids.map((astroid) => {
 
                 let points = 0;
+
+                let riskLevel;
+
+                let riskScore;
 
                 if (astroid.distance <= dClose) {
                     points += 5;
@@ -55,17 +55,53 @@ class RiskService {
 
                 if (astroid.velocity >= vFast) {
                     points += 5;
-                } else if (astroid.velocity <= vMedium) {
+                } else if (astroid.velocity >= vMedium) {
                     points += 3
-                } else if (astroid.velocity <= vLow) {
+                } else if (astroid.velocity >= vLow) {
                     points += 1;
                 } else {
                     points;
                 }
 
 
+                if (points >= 11) {
+                    riskLevel = "Extreme";
+                } else if (points >= 7) {
+                    riskLevel = "High";
+                } else if (points >= 4) {
+                    riskLevel = "Medium";
+                } else if (points >= 0) {
+                    riskLevel = "Low";
+                }
 
-                return {astroid, riskScore, riskLevel};
+                // Date variables
+                const today = new Date();
+
+                const astroidDate = new Date(astroid.closeApproachDate);
+
+                const millisecond = astroidDate - today;
+
+                const daysUntilApproach = millisecond / (1000 * 60 * 60 * 24);
+
+                if (daysUntilApproach < 0) {
+                    points;
+                    return;
+                }
+
+                if (daysUntilApproach < 0) {
+                    
+                } else if (daysUntilApproach <= 7) {
+                    points += 3;
+                } else if (daysUntilApproach <= 30) {
+                    points += 2;
+                } else if (daysUntilApproach <= 60) {
+                    points += 1;
+                }
+
+                riskScore = points;
+
+
+                return {...astroid, riskScore, riskLevel};
             });
         }
 
