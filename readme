@@ -1,4 +1,4 @@
-# Asteroid-Intelligence-System
+# NASA SSD Asteroid-Intelligence-System
 
 A Node.js app that fetches near-Earth asteroid close-approach data from NASA/JPL’s CAD API and calculates a simple risk level based on distance, velocity, and date.
 
