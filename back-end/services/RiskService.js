@@ -20,8 +20,8 @@ class RiskService {
 
         // Distance risk variables
         const dClose = 0.04;
-        const dMedium = 0.05
-        const dFar = 0.06
+        const dMedium = 0.05;
+        const dFar = 0.06;
 
         const astroids = await this.cadService.initCas();
 

@@ -69,7 +69,7 @@ class CadService {
       });
 
 
-      const cleanRows = rows.filter(row => row != null)
+      const cleanRows = rows.filter(row => row != null);
 
       return cleanRows;
 
