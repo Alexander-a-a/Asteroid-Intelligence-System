@@ -83,10 +83,6 @@ class RiskService {
 
                 const daysUntilApproach = millisecond / (1000 * 60 * 60 * 24);
 
-                if (daysUntilApproach < 0) {
-                    points;
-                    return;
-                }
 
                 if (daysUntilApproach < 0) {
                     
