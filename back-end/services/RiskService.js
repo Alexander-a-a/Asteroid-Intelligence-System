@@ -64,16 +64,6 @@ class RiskService {
                 }
 
 
-                if (points >= 11) {
-                    riskLevel = "Extreme";
-                } else if (points >= 7) {
-                    riskLevel = "High";
-                } else if (points >= 4) {
-                    riskLevel = "Medium";
-                } else if (points >= 0) {
-                    riskLevel = "Low";
-                }
-
                 // Date variables
                 const today = new Date();
 
@@ -92,6 +82,17 @@ class RiskService {
                     points += 2;
                 } else if (daysUntilApproach <= 60) {
                     points += 1;
+                }
+
+
+                if (points >= 11) {
+                    riskLevel = "Extreme";
+                } else if (points >= 7) {
+                    riskLevel = "High";
+                } else if (points >= 4) {
+                    riskLevel = "Medium";
+                } else if (points >= 0) {
+                    riskLevel = "Low";
                 }
 
                 riskScore = points;
