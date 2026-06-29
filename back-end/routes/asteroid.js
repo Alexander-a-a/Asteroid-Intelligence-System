@@ -7,41 +7,76 @@ const RiskService = require("../services/RiskService");
 const cadService = new CadService(db);
 const riskService = new RiskService(db, cadService);
 
-
-
 router.get("/cad", async function (req, res, next) {
     try {
-        const cad = await cadService.initCas();
+        const caresultd = await cadService.initCas();
 
         res.status(200).json({
             status: "success",
             statusCode: 200,
-            data: {
-                result: cad
-            }
+            data: { result },
         });
     } catch (err) {
-    next(err);
+        next(err);
     }
 });
-
-
-
 
 router.get("/risk", async function (req, res, next) {
     try {
-        const riskCalc = await riskService.riskCalc();
+        const result = await riskService.riskCalc();
 
         res.status(200).json({
             status: "success",
             statusCode: 200,
-            data: {
-                result: riskCalc
-            }
+            data: { result },
         });
     } catch (err) {
-    next(err);
+        next(err);
     }
 });
 
-module.exports = router; 
+router.get("/update", async (req, res, next) => {
+    try {
+        const result = await riskService.updateAsteroids();
+
+        res.status(200).json({
+            status: "success",
+            statusCode: 200,
+            data: { result },
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// ROUTE FOR MOST DANGEROUS ASTROID
+
+router.get("/most-dangerous", async (req, res, next) => {
+    try {
+        const result = await riskService.mostDangerous();
+
+        res.status(200).json({
+            status: "success",
+            statusCode: 200,
+            data: { result },
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.post("/add", async (req, res, next) => {
+    try {
+        const result = await riskService.addNewAsteroid(req.body);
+
+        res.status(200).json({
+            statusCode: 200,
+            status: "success",
+            data: { result },
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+module.exports = router;
